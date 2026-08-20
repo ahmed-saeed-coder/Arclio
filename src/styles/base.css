@@ -1,61 +1,119 @@
 /* ==========================================================================
-   ARCLIO Base Styles
-   تنسيقات الخطوط والروابط وإمكانية الوصول العامة
+   ARCLIO Base Typography & Core Elements
+   تنسيقات النصوص والعناصر الأساسية للمنصة
    ========================================================================== */
 
+html {
+  font-family: var(--font-arabic);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
 body {
-  font-family: var(--font-sans);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-size: var(--text-base);
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 600px),
+    radial-gradient(circle at 100% 50%, rgba(6, 182, 212, 0.06) 0%, transparent 400px);
+  background-attachment: fixed;
 }
 
-/* تنسيق العناوين الدلالية */
+/* العناوين (Headings) */
 h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
   font-weight: 700;
   line-height: 1.25;
-  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
-h1 { font-size: var(--text-4xl); }
-h2 { font-size: var(--text-2xl); }
-h3 { font-size: var(--text-xl); }
+h1 {
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(var(--text-2xl), 3.5vw, var(--text-3xl));
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
 
 p {
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-code {
-  font-family: var(--font-mono);
-  font-size: 0.9em;
-  background-color: var(--bg-surface);
-  padding: 0.2em 0.4em;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
+a {
+  color: var(--brand-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
   color: var(--brand-accent);
 }
 
-/* سهولة الوصول: إطار تركيز واضح لمستخدمي لوحة المفاتيح */
-:focus-visible {
-  outline: 2px solid var(--brand-primary);
-  outline-offset: 3px;
+code, kbd, pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  direction: ltr;
+  display: inline-block;
 }
 
-/* زر التخطي للمحتوى الأساسي (Skip to Main Content) */
+/* شريط التمرير الحديث (Modern Scrollbar) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary);
+}
+
+/* رابط التخطي لإمكانية الوصول (Accessibility Skip Link) */
 .skip-link {
   position: absolute;
   top: -100px;
-  left: var(--space-4);
+  right: var(--space-4);
   background: var(--brand-primary);
   color: #ffffff;
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-md);
-  z-index: 1000;
   font-weight: 600;
-  transition: top 0.2s ease;
+  z-index: 1000;
+  transition: top var(--transition-fast);
 }
 
 .skip-link:focus {
   top: var(--space-4);
+  outline: 3px solid var(--brand-accent);
+}
+
+/* إطار التركيز لإمكانية الوصول (Focus Visible Outline) */
+:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 2px;
 }
