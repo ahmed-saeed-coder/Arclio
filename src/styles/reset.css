@@ -1,0 +1,68 @@
+/* ==========================================================================
+   ARCLIO Modern CSS Reset
+   تصفير التنسيقات الافتراضية للمتصفحات وضمان دقة الـ Box Model
+   ========================================================================== */
+
+/* 1. استخدام border-box لجميع العناصر لتسهيل حساب العرض والمسافات */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. تحسين سلوك التمرير */
+html {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+  scroll-behavior: smooth;
+}
+
+/* 3. تعيين إعدادات الجسم الأساسية */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 4. جعل الصور والوسائط مرنة وتجنب التمرير الأفقي */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 5. إزالة الأنماط الافتراضية للقوائم */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 6. توحيد خطوط النماذج وحقول الإدخال */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* 7. إزالة التسطير الافتراضي للروابط */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 8. ضمان مظهر زر قابل للنقر */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
